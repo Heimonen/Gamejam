@@ -9,6 +9,7 @@ class Player(Entity):
 	def __init__(self, name):
 		Entity.__init__(self)
 		self._name = name
+		self.loadImage('player.png')
 
 	def loadImage(self, filename):
 		self._image = pygame.transform.scale2x(pygame.image.load(filename))

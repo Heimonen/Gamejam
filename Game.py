@@ -3,13 +3,17 @@ from pygame.locals import *
 from Entity import Entity
 from Player import Player
 
+from GameHandler import GameHandler
+
+
 class Game:
-	windowSurface = None
 	fpsClock = pygame.time.Clock()
-	player = None
+	_gameHandler = GameHandler()
+
+	def __init__(self):
+		pass
 
 	def run(self):
-		self.init()
 		self.loadContent()
 		# Game Loop
 		while(True):
@@ -25,25 +29,17 @@ class Game:
 				sys.exit()
 
 	def update(self):
-		pass
+		self._gameHandler.update()
 
 	def draw(self):
-		# draw the white background onto the surface
-		self.windowSurface.fill((255,255,255))
-		# draw the player
-		self.player.draw(self.windowSurface)
-		# draw the window onto the screen
-		pygame.display.update()
+		self._gameHandler.draw()
 
 	def init(self):
-		pygame.init()
-		# set up the window
-		self.windowSurface = pygame.display.set_mode((1024, 768), 0, 32)
+		pass
 
 	def loadContent(self):
-		self.player = Player("Max")
-		self.player.loadImage('player.png')
-		self.player.setPosition(100, 100)
+		self._gameHandler.loadContent()
+		pygame.init()
 
 if  __name__ =='__main__':
 	game = Game()
