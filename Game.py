@@ -1,12 +1,16 @@
 import pygame, sys
 from pygame.locals import *
+from Entity import Entity
+from Player import Player
 
 class Game:
 	windowSurface = None
 	fpsClock = pygame.time.Clock()
+	player = None
 
 	def run(self):
 		self.init()
+		self.loadContent()
 		# Game Loop
 		while(True):
 			self.checkInput()
@@ -26,8 +30,8 @@ class Game:
 	def draw(self):
 		# draw the white background onto the surface
 		self.windowSurface.fill((255,255,255))
-		# draw a green polygon onto the surface
-		pygame.draw.polygon(self.windowSurface, (0,255,0), ((146, 0), (291, 106), (236, 277), (56, 277), (0, 106)))
+		# draw the player
+		self.player.draw(self.windowSurface)
 		# draw the window onto the screen
 		pygame.display.update()
 
@@ -35,6 +39,11 @@ class Game:
 		pygame.init()
 		# set up the window
 		self.windowSurface = pygame.display.set_mode((1024, 768), 0, 32)
+
+	def loadContent(self):
+		self.player = Player("Max")
+		self.player.loadImage('player.png')
+		self.player.setPosition(100, 100)
 
 if  __name__ =='__main__':
 	game = Game()
