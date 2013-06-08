@@ -18,18 +18,12 @@ class Game:
 		self.loadContent()
 		# Game Loop
 		while(True):
-			self.checkInput()
 			self.update()
 			self.draw()
 			self.fpsClock.tick(60)
 
-	def checkInput(self):
-		for event in pygame.event.get():
-			if event.type == QUIT:
-				pygame.quit()
-				sys.exit()
-
 	def update(self):
+		self._gameHandler.handleInput()
 		self._gameHandler.update()
 
 	def draw(self):

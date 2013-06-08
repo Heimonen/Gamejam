@@ -2,6 +2,7 @@ import pygame, sys
 from pygame.locals import *
 
 class Entity:
+
 	_x = 0
 	_y = 0
 
@@ -11,3 +12,9 @@ class Entity:
 	def setPosition(self, x, y):
 		self._x = x
 		self._y = y
+
+	def update(self):
+		pass
+
+	def draw(self):
+		pass
