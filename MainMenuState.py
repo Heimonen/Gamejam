@@ -12,17 +12,17 @@ class MainMenuState(GameState):
 	def __init__(self, player):
 		pass
 	
-	def loadContent(self):
+	def loadContent(self, entities):
 		SoundHandler.playSong('title.wav')
 		self._title = pygame.transform.scale2x(pygame.image.load('gamejam.png'))
 		self._enter = pygame.image.load('enter.png')
 		pygame.time.Clock() 
 
-	def update(self):
+	def update(self, keyDown):
 		pass
-#354 x 94
+
 	def draw(self, windowSurface):
-		# draw the white background onto the surface
+		# draw the black background onto the surface
 		windowSurface.fill((0,0,0))
 		# draw the title image
 		scale = math.sin(pygame.time.get_ticks() / float(1000)) / 2 + 1
