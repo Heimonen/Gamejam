@@ -20,15 +20,16 @@ class LevelPainter:
             pass
             
     def addTile(self, char, entities):
-        entities.append(Tile(char))
+        tile = Tile(char)
+        entities.append(tile)
 
 class Tile(Entity):
     _image = None
 
     def __init__(self, filename):
         Entity.__init__(self)
-        print "tile"+filename+".png"
-#        self._image = pygame.image.load("tile"+filename+".png")
+        # print "tile"+filename+".png"
+        self._image = pygame.image.load("tile"+filename+".png")
         
     def draw(self, surface):
         surface.blit(self._image, (self._x, self._y))
