@@ -21,7 +21,7 @@ class GameHandler:
 		self._entities.append(self._player)
 		self._stateStack.append(TestState(self._windowSurface))
 
-		lp = LevelPainter("hej~", self._entities)
+		lp = LevelPainter("level0.txt", self._entities)
 
 	def loadContent(self):
 		self._stateStack[-1].loadContent(self._entities)
