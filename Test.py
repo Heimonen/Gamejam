@@ -3,6 +3,7 @@ from pygame.locals import *
 from GameState import GameState
 
 from abc import ABCMeta, abstractmethod
+from SoundHandler import SoundHandler
 
 class TestState(GameState):
 	_player = None
@@ -11,7 +12,7 @@ class TestState(GameState):
 		self._player = player
 	
 	def loadContent(self):
-		pass
+		SoundHandler.playSong('title.wav')
 
 	def update(self):
 		pass

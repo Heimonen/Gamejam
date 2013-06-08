@@ -3,10 +3,13 @@ from pygame.locals import *
 
 from Test import TestState
 from Player import Player
+from SoundHandler import SoundHandler
+from MainMenuState import MainMenuState
 
 class GameHandler:
 	_windowSurface = None
 	_stateStack = []
+	_soundHandler = None
 
 	def __init__(self):
 		# set up the window
@@ -14,6 +17,8 @@ class GameHandler:
 		# create player
 		self._player = Player('player1')
 		self._stateStack.append(TestState(self._player))
+		self._stateStack.append(MainMenuState(self._player))
+		self._soundHandler = SoundHandler()
 
 	def loadContent(self):
 		self._stateStack[-1].loadContent()
