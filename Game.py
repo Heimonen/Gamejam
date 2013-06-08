@@ -35,7 +35,6 @@ class Game:
 	def loadContent(self):
 		self._gameHandler.loadContent()
 		pygame.init()
-		stuff = LevelPainter("hej")
 
 if  __name__ =='__main__':
 	game = Game()

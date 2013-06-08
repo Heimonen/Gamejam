@@ -3,12 +3,14 @@ from pygame.locals import *
 
 from Test import TestState
 from Player import Player
+from LevelPainter import LevelPainter
 
 class GameHandler:
 
 	_windowSurface = None
 	_stateStack = []
 	_entities = []
+	
 	_keyDown = {}
 
 	def __init__(self):
@@ -18,6 +20,8 @@ class GameHandler:
 		self._player = Player('player1')
 		self._entities.append(self._player)
 		self._stateStack.append(TestState(self._windowSurface))
+
+		lp = LevelPainter("hej~", self._entities)
 
 	def loadContent(self):
 		self._stateStack[-1].loadContent(self._entities)
