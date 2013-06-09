@@ -7,13 +7,13 @@ class GameState:
 	__metaclass__ = ABCMeta
 
 	@abstractmethod
-	def loadContent(self):
+	def loadContent(self, entities):
 		pass
 
 	@abstractmethod
-	def update(self):
+	def update(self, keyDown):
 		pass
 
 	@abstractmethod
-	def draw(self):
+	def draw(self, surface):
 		pass

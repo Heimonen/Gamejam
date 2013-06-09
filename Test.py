@@ -4,6 +4,7 @@ from GameState import GameState
 from Player import Player
 
 from abc import ABCMeta, abstractmethod
+from SoundHandler import SoundHandler
 
 class TestState(GameState):
 	_entities = []
@@ -13,6 +14,7 @@ class TestState(GameState):
 		self._surface = surface
 	
 	def loadContent(self, entities):
+		SoundHandler.playSong('title.wav')
 		self._entities = entities
 		for entity in entities:
 			if isinstance (entity, Player):
