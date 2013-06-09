@@ -11,16 +11,23 @@ class LevelPainter:
         self.drawLevel(entities)
 
     def drawLevel(self, entities):
+        currentx, currenty = 0, 0
         try:
             for line in self._levelfile:
                 for char in line:
-                    self.addTile(char, entities)
+                    if char != '\n':
+                        self.addTile(char, entities, (currentx, currenty))
+                        currentx = currentx + 32
+                    else:
+                        currentx = 0
+                        currenty = currenty + 32
         finally:
             self._levelfile.close()
             pass
             
-    def addTile(self, char, entities):
+    def addTile(self, char, entities, xy):
         tile = Tile(char)
+        tile.setPosition(xy[0], xy[1])
         entities.append(tile)
 
 class Tile(Entity):
@@ -28,7 +35,6 @@ class Tile(Entity):
 
     def __init__(self, filename):
         Entity.__init__(self)
-        # print "tile"+filename+".png"
         self._image = pygame.image.load("tile"+filename+".png")
         
     def draw(self, surface):
