@@ -15,7 +15,7 @@ class MainMenuState(GameState):
 		pass
 	
 	def loadContent(self, entities):
-		SoundHandler.playSong('title.wav')
+		SoundHandler.playSong('Title.wav')
 		self._title = pygame.transform.scale2x(pygame.image.load('gamejam.png'))
 		self._enter = pygame.image.load('enter.png')
 		pygame.time.Clock() 
